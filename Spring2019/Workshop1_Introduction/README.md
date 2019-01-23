@@ -48,6 +48,12 @@ b'Hello, Tensorflow'
 ### Windows
 TODO: Installing Anaconda Disribution for Windows
 
+```
+c:\ > conda create -n psu_tf_workshop_py36 python=3.6 jupyter spyder numpy pandas scikit-learn matplotlib
+c:\ > conda activate psu_tf_workshop_py36
+c:\ > pip install --upgrade tensorflow
+```
+
 ### Mac OSX
 TODO: Instaling Anaconda Distribution for Mac OSX
 
