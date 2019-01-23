@@ -59,3 +59,9 @@ TODO: Instaling Anaconda Distribution for Mac OSX
 
 ## Using a cloud Python environment for completing the workshop
 
+
+
+# Data Set Description
+
+## Organic Compound Melting points
+This is a hand-build set of data from Handbook of Chemistry and Physics
