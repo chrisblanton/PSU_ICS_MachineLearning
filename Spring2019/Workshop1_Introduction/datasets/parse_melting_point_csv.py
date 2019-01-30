@@ -70,7 +70,8 @@ print(df.columns)
 #print(df[['Row','Synonym','Mol. form.','Physical form' ]].head(25))
 #print(df['Synonym'][1])
 
-col_names=['name','cas','c','h','o','dou','mp']
+#col_names=['name','cas','c','h','o','dou','mp','roh','rcooh','rcor','rcoor','aromatic','lcc']
+col_names=['cas','c','h','o','dou','mp','roh','ror','rcooh','rcor','rcoor','aromatic','lcc']
 df2 = pd.DataFrame(columns=col_names)
 #print(df2.head())
 for i in range(1,len(df['Row'])):
@@ -92,13 +93,20 @@ for i in range(1,len(df['Row'])):
             o = 0
         dou = calc_dou(formula)
         if mp != 'nan':
-            df2 = df2.append({'name':name,
-                              'cas':cas,
+            #df2 = df2.append({'name':name,
+            df2 = df2.append({'cas':cas,
                               'c':c,
                               'h':h,
                               'o':o,
                               'dou':dou,
-                              'mp':mp},ignore_index=True)
+                              'mp':mp,
+                              'roh':0,
+                              'ror':0,
+                              'rcooh':0,
+                              'rcor':0,
+                              'rcoor':0,
+                              'aromatic':0,
+                              'lcc':c},ignore_index=True)
         #print(name,cas,c,h,o,dou,mp)
         #tempdf = pd.DataFrame()
         #df2.append(tempdf)
@@ -110,4 +118,5 @@ for i in range(1,len(df['Row'])):
 
 
 print(df2)
+df2.to_csv('dataset_mp.tsv',sep='\t')
 
