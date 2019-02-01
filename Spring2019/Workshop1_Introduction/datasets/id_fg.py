@@ -1,112 +1,90 @@
 #!/usr/bin/env python
-#The goal here is to id the prescence of difference functional groups
-# within SMILES codes
-# Smiles for 514-10-3
-# CC(C)C1=CC2=CC[C@@H]3[C@@]([C@H]2CC1)(CCC[C@@]3(C)C(=O)O)C
-# 
 from __future__ import print_function
-import os
-from rdkit import RDConfig
 from rdkit import Chem
-from rdkit.Chem import Draw
-from rdkit.Chem import FragmentCatalog
-#From contrib ifg.py, there must be another way to use this
-from collections import namedtuple
 
-def merge(mol, marked, aset):
-    bset = set()
-    for idx in aset:
-        atom = mol.GetAtomWithIdx(idx)
-        for nbr in atom.GetNeighbors():
-            jdx = nbr.GetIdx()
-            if jdx in marked:
-                marked.remove(jdx)
-                bset.add(jdx)
-    if not bset:
-        return
-    merge(mol, marked, bset)
-    aset.update(bset)
+# Useful references
+# Ruggeri and Takahama has a very useful table of SMARTS
+# Technical Note: Development of chemoinformatic tools to enumerate
+#functional groups in molecules for organic aerosol characterization
+#Giulia Ruggeri and Satoshi Takahama
+# https://core.ac.uk/download/pdf/145658301.pdf
+#
+# DAYLIGHT tutorials
+# http://www.daylight.com/dayhtml/doc/theory/theory.smarts.html
+# http://www.daylight.com/dayhtml_tutorials/languages/smarts/smarts_examples.html
 
-# atoms connected by non-aromatic double or triple bond to any heteroatom
-# c=O should not match (see fig1, box 15).  I think using A instead of * should sort that out?
-PATT_DOUBLE_TRIPLE = Chem.MolFromSmarts('A=,#[!#6]')
-# atoms in non aromatic carbon-carbon double or triple bonds
-PATT_CC_DOUBLE_TRIPLE = Chem.MolFromSmarts('C=,#C')
-# acetal carbons, i.e. sp3 carbons connected to tow or more oxygens, nitrogens or sulfurs; these O, N or S atoms must have only single bonds
-PATT_ACETAL = Chem.MolFromSmarts('[CX4](-[O,N,S])-[O,N,S]')
-# all atoms in oxirane, aziridine and thiirane rings
-PATT_OXIRANE_ETC = Chem.MolFromSmarts('[O,N,S]1CC1')
+# ROH
+def is_alcohol(mol):
+    # alcohol, not in carboxylic acid
+    #alcohol_smarts = '[$([CX4]O)]'
+    alcohol_smarts = '[C;!$(C=O)][OX2H]'
+    alcohol = Chem.MolFromSmarts(alcohol_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,alcohol)) > 0:
+        value = True
+    return value
 
-PATT_TUPLE = (PATT_DOUBLE_TRIPLE, PATT_CC_DOUBLE_TRIPLE, PATT_ACETAL, PATT_OXIRANE_ETC)
+# RCOOH
+def is_cooh(mol):
+    cooh_smarts = '[CX3](=O)[OX2H1]'
+    cooh = Chem.MolFromSmarts(cooh_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,cooh)) > 0:
+        value = True
+    return value
 
-def identify_functional_groups(mol):
-    marked = set()
-#mark all heteroatoms in a molecule, including halogens
-    for atom in mol.GetAtoms():
-        if atom.GetAtomicNum() not in (6,1): # would we ever have hydrogen?
-            marked.add(atom.GetIdx())
+#R(C=O)R
+def is_ketone(mol):
+    ketone_smarts = '[#6][CX3](=O)[#6]'
+    ketone = Chem.MolFromSmarts(ketone_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,ketone)) > 0:
+        value = True
+    return value
 
-#mark the four specific types of carbon atom
-    for patt in PATT_TUPLE:
-        for path in mol.GetSubstructMatches(patt):
-            for atomindex in path:
-                marked.add(atomindex)
+# ROR
+def is_ether(mol):
+    #ether_smarts = '[OD2]([#6])[#6]'
+    ether_smarts = '[OD2]([#6;!$(C=O)])[#6;!$(C=O)]'
+    ether = Chem.MolFromSmarts(ether_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,ether)) > 0:
+        value = True
+    return value
 
-#merge all connected marked atoms to a single FG
-    groups = []
-    while marked:
-        grp = set([marked.pop()])
-        merge(mol, marked, grp)
-        groups.append(grp)
+# RCOOR
+# This will not hit anhydrides
+def is_ester(mol):
+    #ester_smarts = '[#6][CX3](=O)[OX2H0][#6]'
+    ester_smarts = '[CX3H1,CX3](=O)[OX2H0][#6;!$([C]=[O])]'
+    ester = Chem.MolFromSmarts(ester_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,ester)) > 0:
+        value = True
+    return value
 
-#extract also connected unmarked carbon atoms
-    ifg = namedtuple('IFG', ['atomIds', 'atoms', 'type'])
-    ifgs = []
-    for g in groups:
-        uca = set()
-        for atomidx in g:
-            for n in mol.GetAtomWithIdx(atomidx).GetNeighbors():
-                if n.GetAtomicNum() == 6:
-                    uca.add(n.GetIdx())
-        ifgs.append(ifg(atomIds=tuple(list(g)), atoms=Chem.MolFragmentToSmiles(mol, g, canonical=True), type=Chem.MolFragmentToSmiles(mol, g.union(uca),canonical=True)))
-    return ifgs
-# End of ifg.py from contrib
+# R(C=O)O(C=O)R
+def is_anhydride(mol):
+    anh_smarts = '[CX3](=O)[O][CX3](=O)'
+    anh = Chem.MolFromSmarts(anh_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,anh)) > 0:
+        value = True
+    return value
 
-#print(RDConfig.RDDataDir)
-fName = os.path.join(RDConfig.RDDataDir,'FunctionalGroups.txt')
-fparams = FragmentCatalog.FragCatParams(1,6,fName)
-#print(fparams.GetNumFuncGroups())
-fcat = FragmentCatalog.FragCatalog(fparams)
-fcgen = FragmentCatalog.FragCatGenerator()
+# RCHO, But does not catch formaldehyde
+def is_aldehyde(mol):
+    ald_smarts = '[CX3;$(C([#1])(=[O])[#6])](=[O;!$([O][O])])[H]'
+    ald = Chem.MolFromSmarts(ald_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,ald)) > 0:
+        value = True
+    return value
 
 
 
-# 514-10-3
-#m = Chem.MolFromSmiles('CC(C)C1=CC2=CC[C@@H]3[C@@]([C@H]2CC1)(CCC[C@@]3(C)C(=O)O)C')
-m = Chem.MolFromSmiles('CC(=O)O')
-# trans-Cinnamic Acid
-#m = Chem.MolFromSmiles('c1ccc(cc1)/C=C/C(=O)O')
-# ethanol
-#m = Chem.MolFromSmiles('CCO')
-# diethyl ether
-#m = Chem.MolFromSmiles('CCOCC')
-#Draw.MolToFile(m,'mymol.png')
-#print(fcgen.AddFragsFromMol(m,fcat))
-#print(fcat.GetEntryDescription(5))
 
-#print(fcat.GetNumEntries())
-#for i in range(fcat.GetNumEntries()):
-#    funcGroupList = list(fcat.GetEntryFuncGroupIds(i))
-#    print(i,fcat.GetEntryDescription(i))
-#    print(funcGroupList)
-#    if len(funcGroupList) > 0:
-#        for j in funcGroupList:
-#            print(fparams.GetFuncGroup(j).GetProp('_Name'))
 
-#print("Info about functional groups:")
-#for i in range(fparams.GetNumFuncGroups()):
-#    print(fparams.GetFuncGroup(i).GetProp('_Name'))
-    
 
-fgs = identify_functional_groups(m)
-print(fgs)
+
+        
