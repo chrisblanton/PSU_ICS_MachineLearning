@@ -17,7 +17,7 @@ from rdkit import Chem
 def is_alcohol(mol):
     # alcohol, not in carboxylic acid
     #alcohol_smarts = '[$([CX4]O)]'
-    alcohol_smarts = '[C;!$(C=O)][OX2H]'
+    alcohol_smarts = '[C,c;!$(C=O)][OX2H]'
     alcohol = Chem.MolFromSmarts(alcohol_smarts)
     value = False
     if len(Chem.Mol.GetSubstructMatch(mol,alcohol)) > 0:
@@ -74,15 +74,28 @@ def is_anhydride(mol):
 
 # RCHO, But does not catch formaldehyde
 def is_aldehyde(mol):
-    ald_smarts = '[CX3;$(C([#1])(=[O])[#6])](=[O;!$([O][O])])[H]'
+    ald_smarts = '[CX3H1](=O)[#6]'
     ald = Chem.MolFromSmarts(ald_smarts)
     value = False
     if len(Chem.Mol.GetSubstructMatch(mol,ald)) > 0:
         value = True
     return value
 
+# Aromatic
+def is_aromatic(mol):
+    ar_smarts = 'c'
+    ar = Chem.MolFromSmarts(ar_smarts)
+    value = False
+    if len(Chem.Mol.GetSubstructMatch(mol,ar)) > 0:
+        value = True
+    return value
 
-
+def find_longest_alphatic_chain(mol):
+    alp_smarts = '[C]'
+    alp = Chem.MolFromSmarts(alp_smarts)
+    value = Chem.Mol.GetSubstructMatches(mol,alp)
+    return value
+    
 
 
 
