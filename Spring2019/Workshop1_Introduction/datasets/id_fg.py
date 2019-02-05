@@ -90,10 +90,51 @@ def is_aromatic(mol):
         value = True
     return value
 
+def get_all_atoms_and_bonds(mol):
+    atoms = mol.GetAtoms()
+    bonds = mol.GetBonds()
+    atom_list = []
+    neighbor_list = []
+    bond_list = []
+    for atom in atoms:
+        print(atom.GetIdx(),atom.GetSymbol(),[x.GetIdx() for x in atom.GetNeighbors() ])
+        neighbor_list.append([x.GetIdx() for x in atom.GetNeighbors()])
+        atom_list.append(atom.GetSymbol())
+    print("Atoms: ",atom_list)
+    print("Neighbor_list: ", neighbor_list)
+    for bond in bonds:
+        print(bond.GetIdx(),bond.GetBeginAtomIdx(),bond.GetEndAtomIdx(),bond.GetBondType())
+        bond_list.append([bond.GetBeginAtomIdx(),bond.GetEndAtomIdx(),str(bond.GetBondType())])
+    print("Bond_list: ", bond_list)
+    paths = find_paths(bond_list)
+    
+def find_paths(bond_list):
+    paths = []
+    for i in range(len(bond_list)):
+        path = []
+        start = bond_list[i][0]
+        end = bond_list[i][1]
+        path.append(start)
+        path.append(end)
+        for i in range(len(bond_list)):
+            if bond_list[i][0] == end:
+                start = end
+                end = bond_list[i][1]
+        print("Path: ",path)
+        paths.append(path)
+    return paths
+    
+                
+        
+    
+def find_branches(mol):
+    list_of_branches = []  
+    get_all_atoms_and_bonds(mol)     
+    return list_of_branches
+
 def find_longest_alphatic_chain(mol):
-    alp_smarts = '[C]'
-    alp = Chem.MolFromSmarts(alp_smarts)
-    value = Chem.Mol.GetSubstructMatches(mol,alp)
+    find_branches(mol)
+    value = 0
     return value
     
 

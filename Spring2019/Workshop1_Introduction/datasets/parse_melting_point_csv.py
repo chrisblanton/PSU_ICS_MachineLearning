@@ -50,6 +50,6 @@ for i in range(len(df['SMILES'])):
     chem_form = get_chem_form_inchi(inchi)
     form_dict = split_chem_form(chem_form)
     print(df['SMILES'][i], inchi, chem_form, form_dict)
-    inp = input('Continue [Y/n]')
-    if inp == 'n':
-        break
+    #inp = input('Continue [Y/n]')
+    #if inp == 'n':
+    #    break

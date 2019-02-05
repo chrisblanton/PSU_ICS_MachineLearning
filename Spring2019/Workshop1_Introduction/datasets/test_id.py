@@ -6,9 +6,10 @@ from rdkit.Chem import Draw
 from rdkit.Chem import rdFMCS
 
 #cmps = ['ethanol']
-cmps = ['ethanol','acetic acid','diethyl ether','acetone','acetic anhydride',
-        'ethyl acetate',"acetaldehyde", "propanal","cyclohexane",
-        'benzene', 'benzoic acid', 'phenol','benzaldehyde']
+#cmps = ['ethanol','acetic acid','diethyl ether','acetone','acetic anhydride',
+#        'ethyl acetate',"acetaldehyde", "propanal","cyclohexane",
+#        'benzene', 'benzoic acid', 'phenol','benzaldehyde','isopentane','butane']
+cmps = ['butane']
 
 #results = pcp.get_substances('ethanol','name')
 #print(results)
@@ -29,11 +30,11 @@ for cmp in cmps:
     print(c.cid)
     pcp.download('PNG', 'images/'+cmp.replace(" ","_")+'.png', c.cid, 'cid',overwrite=True)
     m = Chem.MolFromInchi(c.inchi)
-    atoms_list = list(m.GetAtoms())
-    atoms = []
-    for i in range(len(atoms_list)):
-        atoms.append(atoms_list[i])
-    print("Atoms: ", atoms)
+    #atoms_list = list(m.GetAtoms())
+    #atoms = []
+    #for i in range(len(atoms_list)):
+    #    atoms.append(atoms_list[i])
+    #print("Atoms: ", atoms)
     print("Alcohol: ",id_fg.is_alcohol(m))
     print("COOH: ", id_fg.is_cooh(m))
     print("Ketone: ", id_fg.is_ketone(m))
