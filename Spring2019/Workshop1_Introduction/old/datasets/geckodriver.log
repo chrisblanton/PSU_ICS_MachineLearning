@@ -1,0 +1,294 @@
+1548792566265	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.G7sPWuOH93Dq"
+*** You are running in headless mode.
+1548792568102	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548792568483	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548792568486	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548792571941	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548792572413	Marionette	INFO	Listening on port 39215
+1548792572490	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1548792727033	Marionette	INFO	Stopped listening on port 39215
+1548793583386	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.J7l1xEQEEvSs"
+1548793583686	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548793583729	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548793583732	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548793585218	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548793585399	Marionette	INFO	Listening on port 41407
+1548793585513	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+1548793590058	Marionette	INFO	Stopped listening on port 41407
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1548793691744	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IAv6wjDfFvWW"
+1548793691996	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548793692036	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548793692038	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548793693262	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548793693540	Marionette	INFO	Listening on port 43017
+1548793693557	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1548793709183	Marionette	INFO	Stopped listening on port 43017
+1548793724710	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.7YLzsYaYM8RT"
+1548793724964	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548793725006	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548793725008	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548793726240	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548793726625	Marionette	INFO	Listening on port 34299
+1548793726816	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+1548793736973	Marionette	INFO	Stopped listening on port 34299
+1548794092388	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Jri6MXWzaZHU"
+1548794092645	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548794092692	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548794092694	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548794094094	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548794094400	Marionette	INFO	Listening on port 43329
+1548794094511	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+console.error: "Tried to send a 'tabDetached' event on an already destroyed actor 'frameTarget'"
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1548794358388	Marionette	INFO	Stopped listening on port 43329
+1548794378924	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.QLQzGTWrk363"
+1548794379188	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548794379234	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548794379236	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548794380508	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548794380735	Marionette	INFO	Listening on port 42047
+1548794380838	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1548794392933	Marionette	INFO	Stopped listening on port 42047
+1548794839536	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.oRXmjmmmjVRT"
+1548794839787	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548794839832	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548794839835	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548794841191	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548794841525	Marionette	INFO	Listening on port 41409
+1548794841547	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1548794940830	Marionette	INFO	Stopped listening on port 41409
+1548795416174	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bqI3Xvlcknkr"
+1548795416423	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548795416464	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548795416466	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548795417811	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548795418161	Marionette	INFO	Listening on port 46203
+1548795418185	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1548795426602	Marionette	INFO	Stopped listening on port 46203
+1548795516157	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.afgGnhu5bcDS"
+1548795516413	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548795516456	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548795516458	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548795517746	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548795517909	Marionette	INFO	Listening on port 33139
+1548795517970	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1548795525741	Marionette	INFO	Stopped listening on port 33139
+1548795666392	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.qrTp4M79KoV1"
+1548795666658	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548795666698	addons.xpi-utils	WARN	addMetadata: Add-on aushelper@mozilla.org is invalid: [Exception... "Component returned failure code: 0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST) [nsIFile.isFile]"  nsresult: "0x80520006 (NS_ERROR_FILE_TARGET_DOES_NOT_EXIST)"  location: "JS frame :: resource://gre/modules/addons/XPIInstall.jsm :: get :: line 227"  data: no] Stack trace: get()@resource://gre/modules/addons/XPIInstall.jsm:227
+loadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:856
+syncLoadManifestFromFile()@resource://gre/modules/addons/XPIInstall.jsm:870
+addMetadata()@resource://gre/modules/addons/XPIDatabase.jsm:2395
+processFileChanges()@resource://gre/modules/addons/XPIDatabase.jsm:2736
+checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:2556
+startup()@resource://gre/modules/addons/XPIProvider.jsm:2134
+callProvider()@resource://gre/modules/AddonManager.jsm:206
+_startProvider()@resource://gre/modules/AddonManager.jsm:654
+startup()@resource://gre/modules/AddonManager.jsm:807
+startup()@resource://gre/modules/AddonManager.jsm:2802
+observe()@jar:file:///usr/lib64/firefox/omni.ja!/components/addonManager.js:66
+1548795666700	addons.xpi-utils	WARN	Could not uninstall invalid item from locked install location
+1548795667894	addons.xpi	WARN	Can't get modified time of /usr/lib64/firefox/browser/features/aushelper@mozilla.org.xpi
+1548795668148	Marionette	INFO	Listening on port 39557
+1548795668215	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://hbcponline.com/faces/contents/InteractiveTable.xhtml?search=false&tableId=6, line 629: SyntaxError: unexpected token: identifier
+1548795673249	Marionette	INFO	Stopped listening on port 39557
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+[Parent 15498, Gecko_IOThread] WARNING: pipe error (78): Connection reset by peer: file /builddir/build/BUILD/firefox-63.0.3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
