@@ -5,6 +5,20 @@ from rdkit import Chem
 
 import id_fg
 
+def mol_wt_CHO(form_dict):
+    massC = 12.0107
+    massH = 1.00794
+    massO = 15.999
+    mol_wt = float(form_dict['C'])*massC + float(form_dict['H'])*massH + float(form_dict['O'])*massO
+    return mol_wt
+
+def dou_CHO(form_dict):
+    c = form_dict['C']
+    h = form_dict['H']
+    o = form_dict['O']
+    dou = (2*int(c)+2-int(h))/2
+    return dou
+
 def get_inchi_from_smiles(smiles):
     m = Chem.MolFromSmiles(smiles)
     inchi = Chem.MolToInchi(m)
@@ -41,6 +55,13 @@ def split_chem_form(chem_form):
             else:
                 form_dict[element[0]] = count
     return form_dict
+
+def form_dict_only_CHO(form_dict):
+    is_only_CHO = True
+    for element in form_dict.keys():
+        if element not in ['C','H','O']:
+            is_only_CHO = False
+    return is_only_CHO
     
 
 df = pd.read_csv('ONSMeltingPoints.tsv',sep='\t')
@@ -48,19 +69,47 @@ df = pd.read_csv('ONSMeltingPoints.tsv',sep='\t')
 #print(df)
 print(df.columns)
 
+
+output = open('filter_mp.tsv','w')
+#output.write('csid\tmp\tinchi\tname\tc\th\to\tOH\tCO\tdou\tCHO\tCOOH\tROR\tCOOR\tAromatic\n')
+output.write('csid\tmp\tinchi\tname\tc\th\to\tmol_wt\tdou\tAromatic\tOH\tCO\tCHO\tCOOH\tCOOR\tROR\n')
 #print(df[['Ave','SMILES','name']].head())
 #for i in range(len(df['SMILES'])):
 for i in range(len(df['SMILES'])):
     try:
         smiles = df['SMILES'][i]
+        mol = Chem.MolFromSmiles(smiles)
+        alc = str(int(id_fg.is_alcohol(mol)))
+        ket = str(int(id_fg.is_ketone(mol)))
+        cho = str(int(id_fg.is_aldehyde(mol)))
+        cooh = str(int(id_fg.is_cooh(mol)))
+        ror = str(int(id_fg.is_ether(mol)))
+        coor = str(int(id_fg.is_ester(mol)))
+        aro = str(int(id_fg.is_aromatic(mol)))
         inchi = get_inchi_from_smiles(smiles)
         chem_form = get_chem_form_inchi(inchi)
         form_dict = split_chem_form(chem_form)
-        print(i, smiles,inchi,  chem_form, form_dict)
+        is_only_CHO = form_dict_only_CHO(form_dict)
+        if is_only_CHO:
+            #print(i, smiles,inchi,  chem_form, form_dict)
+            #print(df['CSID'][i])
+#            output.write(str(df['CSID'][i])+'\t'+str(df['Ave'][i])+'\t'+inchi+
+#                         '\t'+str(df['name'][i])+'\t'+form_dict['C']+
+#                         '\t'+form_dict['H']+'\t'+form_dict['O']+
+#                         '\t'+alc+'\t'+ket+'\t'+cho+'\t'+
+#                         '\t'+cooh+'\t'+ror+'\t'+coor+'\t'+aro+'\n')
+            dou = dou_CHO(form_dict)
+            mol_wt = mol_wt_CHO(form_dict)
+            output.write(str(df['CSID'][i])+'\t'+str(df['Ave'][i])+'\t'+inchi+
+                         '\t'+str(df['name'][i])+'\t'+form_dict['C']+
+                         '\t'+form_dict['H']+'\t'+form_dict['O']+
+                         '\t'+str(mol_wt)+'\t'+str(dou)+
+                         '\t'+aro+'\t'+alc+'\t'+ket+
+                         '\t'+cho+'\t'+cooh+'\t'+coor+
+                         '\t'+ror+'\n')
     except:
         continue
 #    #inp = input('Continue [Y/n]')
 #    #if inp == 'n':
 #    #    break
-    
-output_df = pd.DataFrame()
+output.close()
