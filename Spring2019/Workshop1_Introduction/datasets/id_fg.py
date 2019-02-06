@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from __future__ import print_function
 from rdkit import Chem
+from rdkit.Chem import rdmolops
 
 # Useful references
 # Ruggeri and Takahama has a very useful table of SMARTS
@@ -106,22 +107,12 @@ def get_all_atoms_and_bonds(mol):
         print(bond.GetIdx(),bond.GetBeginAtomIdx(),bond.GetEndAtomIdx(),bond.GetBondType())
         bond_list.append([bond.GetBeginAtomIdx(),bond.GetEndAtomIdx(),str(bond.GetBondType())])
     print("Bond_list: ", bond_list)
-    paths = find_paths(bond_list)
+    paths = find_paths(mol)
     
-def find_paths(bond_list):
+def find_paths(mol):
     paths = []
-    for i in range(len(bond_list)):
-        path = []
-        start = bond_list[i][0]
-        end = bond_list[i][1]
-        path.append(start)
-        path.append(end)
-        for i in range(len(bond_list)):
-            if bond_list[i][0] == end:
-                start = end
-                end = bond_list[i][1]
-        print("Path: ",path)
-        paths.append(path)
+    for i in range(2,mol.GetNumBonds()):
+        paths.append(rdmolops.FindAllPathsOfLengthN(mol,i))
     return paths
     
                 

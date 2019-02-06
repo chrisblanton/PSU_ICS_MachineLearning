@@ -5,6 +5,11 @@ from rdkit import Chem
 
 import id_fg
 
+def get_inchi_from_smiles(smiles):
+    m = Chem.MolFromSmiles(smiles)
+    inchi = Chem.MolToInchi(m)
+    return inchi
+
 def get_chem_form_inchi(inchi):
     #InChI are strings like this
     #InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3
@@ -40,16 +45,22 @@ def split_chem_form(chem_form):
 
 df = pd.read_csv('ONSMeltingPoints.tsv',sep='\t')
 
-print(df)
+#print(df)
 print(df.columns)
 
-print(df[['Ave','SMILES','name']].head())
+#print(df[['Ave','SMILES','name']].head())
+#for i in range(len(df['SMILES'])):
 for i in range(len(df['SMILES'])):
-    m = Chem.MolFromSmiles(df['SMILES'][i])
-    inchi = Chem.MolToInchi(m)
-    chem_form = get_chem_form_inchi(inchi)
-    form_dict = split_chem_form(chem_form)
-    print(df['SMILES'][i], inchi, chem_form, form_dict)
-    #inp = input('Continue [Y/n]')
-    #if inp == 'n':
-    #    break
+    try:
+        smiles = df['SMILES'][i]
+        inchi = get_inchi_from_smiles(smiles)
+        chem_form = get_chem_form_inchi(inchi)
+        form_dict = split_chem_form(chem_form)
+        print(i, smiles,inchi,  chem_form, form_dict)
+    except:
+        continue
+#    #inp = input('Continue [Y/n]')
+#    #if inp == 'n':
+#    #    break
+    
+output_df = pd.DataFrame()
