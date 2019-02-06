@@ -100,7 +100,7 @@ for i in range(len(df['SMILES'])):
 #                         '\t'+cooh+'\t'+ror+'\t'+coor+'\t'+aro+'\n')
             dou = dou_CHO(form_dict)
             mol_wt = mol_wt_CHO(form_dict)
-            output.write(str(df['CSID'][i])+'\t'+str(df['Ave'][i])+'\t'+inchi+
+            output.write('csid'+str(df['CSID'][i])+'\t'+str(df['Ave'][i])+'\t'+inchi+
                          '\t'+str(df['name'][i])+'\t'+form_dict['C']+
                          '\t'+form_dict['H']+'\t'+form_dict['O']+
                          '\t'+str(mol_wt)+'\t'+str(dou)+

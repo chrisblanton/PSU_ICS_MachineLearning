@@ -27,8 +27,8 @@ TODO: Installing Anaconda Distribution for Linux
 Here are the steps for creating the workshop environment:
 
 ```bash
-$ conda create -n psu_tf_workshop_py36 python=3.6 jupyter spyder numpy pandas scikit-learn matplotlib
-$ source activate psy_tf_workshop_py36
+$ conda create -n psu_tf_workshop_py36 python=3.6 jupyter spyder numpy pandas scikit-learn matplotlib seaborn 
+$ conda activate psy_tf_workshop_py36
 $ pip install --upgrade tensorflow
 $ python
 Python 3.6.8 |Anaconda, Inc.| (default, Dec 30 2018, 01:22:34) 
