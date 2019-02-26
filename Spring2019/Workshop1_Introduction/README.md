@@ -3,6 +3,8 @@
 ## The Pennsylvania State University
 ## Institute for CyberScience and Materials Research Institute
 
+Slides <https://goo.gl/5qNftz>
+
 This workshop is an introduction to using the TensorFlow framework 
 with Python. 
 
@@ -72,5 +74,6 @@ Using Google Colab <https://colab.research.google.com> is a good way to have a w
 environment that has TensorFlow available without installing on a local computer. 
 
 On Colab, you can directly interface with the GitHub repo.
+
 
 
